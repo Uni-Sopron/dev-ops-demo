@@ -7,7 +7,7 @@ services:
       - nginx-proxy-network
     restart: unless-stopped
     volumes:
-      - ./website:/usr/share/nginx/html
+      - /var/lib/docker/volumes/portainer_data/_data/compose/7/website:/usr/share/nginx/html
 
 
 networks:
