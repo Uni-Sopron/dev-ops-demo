@@ -1,0 +1,15 @@
+services:
+  website:
+    image: nginx:alpine
+    ports:
+      - 8082:80
+    networks:
+      - nginx-proxy-network
+    restart: unless-stopped
+    volumes:
+      - ./website:/usr/share/nginx/html
+
+
+networks:
+  nginx-proxy-network:
+    external: true
