@@ -1,0 +1,26 @@
+services:
+  builder:
+    build: ./website
+    volumes:
+      - website_data:/build
+
+  website:
+    image: nginx:alpine
+    ports:
+      - 8082:80
+    restart: unless-stopped
+    volumes:
+      - website_data:/usr/share/nginx/html:ro
+    depends_on:
+      - builder
+    networks:
+      - nginx-proxy-network
+
+
+volumes:
+  website_data:
+
+
+networks:
+  nginx-proxy-network:
+    external: true

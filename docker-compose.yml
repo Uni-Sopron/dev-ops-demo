@@ -1,13 +1,11 @@
 services:
   website:
-    image: nginx:alpine
+    build: ./website
     ports:
       - 8082:80
     networks:
       - nginx-proxy-network
     restart: unless-stopped
-    volumes:
-      - $WEBSITE_PATH:/usr/share/nginx/html
 
 networks:
   nginx-proxy-network:
