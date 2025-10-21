@@ -24,6 +24,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: Show working directory
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Contents:"
+          ls -la
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
